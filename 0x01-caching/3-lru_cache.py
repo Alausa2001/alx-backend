@@ -39,21 +39,22 @@ class LRUCache(BaseCaching):
         super().__init__()
         self.key_order = []
 
-
     def put(self, key, item):
         """
         Must assign to the dictionary self.cache_data
         the item value for the key key.
         """
-        if key and item and len(self.key_order) <= BaseCaching.MAX_ITEMS:
+        if key and item:
+            if key in self.cache_data:
+                del self.cache_data[key]
+                self.key_order.remove(key)
+            if len(self.key_order) >= BaseCaching.MAX_ITEMS:
+                discard = self.key_order.pop(0)
+                del self.cache_data[discard]
+                print("DISCARD: {}".format(discard))
             self.cache_data[key] = item
             self.key_order.append(key)
-        elif len(self.key_order) > BaseCaching.MAX_ITEMS:
-            discard = self.key_order.pop(0)
-            del self.cache_data[discard]
-            self.cache_data[key] = item
-            self.key_order.append(key)
-            print("DISCARD: {}".format(discard))
+
     def get(self, key):
         """return a cached item"""
         if key in self.cache_data:
