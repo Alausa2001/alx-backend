@@ -31,7 +31,7 @@ from base_caching import BaseCaching
 
 class LIFOCache(BaseCaching):
     """
-    a simple FIFO cache
+    a simple LIFO cache
     """
 
     def __init__(self):
