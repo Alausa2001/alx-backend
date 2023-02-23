@@ -46,7 +46,7 @@ class LFUCache(BaseCaching):
         """
         if key and item:
             self.cache_data[key] = item
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 lru = min(self.key_count, key=self.key_count.get)
                 del self.key_count[lru]
                 del self.cache_data[lru]
