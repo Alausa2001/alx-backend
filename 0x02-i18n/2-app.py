@@ -40,7 +40,7 @@ def home():
     """
     return render_template('2-index.html')
 
-#babel.init_app(app, locale_selector=get_locale)
+# babel.init_app(app, locale_selector=get_locale)
 
 
 if __name__ == "__main__":
