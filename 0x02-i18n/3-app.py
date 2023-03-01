@@ -6,7 +6,7 @@ Use request.accept_languages to determine the best match
 with our supported languages..
 """
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, _
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -30,7 +30,8 @@ def get_locale():
     """
      Get locale from request
     """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return 'fr'
+# request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
