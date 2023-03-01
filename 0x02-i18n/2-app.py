@@ -25,7 +25,7 @@ class Config():
 app.config.from_object(Config)
 
 
-#@babel.localeselector
+@babel.localeselector
 def get_locale():
     """
      Get locale from request
@@ -40,7 +40,7 @@ def home():
     """
     return render_template('2-index.html')
 
-babel.init_app(app, locale_selector=get_locale)
+#babel.init_app(app, locale_selector=get_locale)
 
 
 if __name__ == "__main__":
