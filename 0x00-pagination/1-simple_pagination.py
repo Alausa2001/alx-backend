@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+simple pagination
+"""
 import csv
 import math
 from typing import List
@@ -17,7 +19,8 @@ def index_range(page, page_size):
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
+    """
+    Server class to paginate a database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
@@ -25,7 +28,8 @@ class Server:
         self.__dataset = None
 
     def dataset(self) -> List[List]:
-        """Cached dataset
+        """
+        Cached dataset
         """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
@@ -37,7 +41,8 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
-        get page
+        return elements in Popular_Baby_Names.csv corresponding to the
+        page and page_size
         """
         elements = []
         try:
