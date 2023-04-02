@@ -18,6 +18,6 @@ function sendNotification(phoneNumber, message, notification, done){
   }
 }
 
-worker.process('push_notification_code_2', 2, (notification, done) => {
+worker.process('push_notification_code_3', 2, (notification, done) => {
   sendNotification(notification.data.phoneNumber, notification.data.message, notification, done);
 });
